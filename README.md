@@ -3,11 +3,10 @@ test version for FDSR
 for searched small edsr in x4
 
 ## 1. Download 
-download main.py, edsr.py, searched_small_edsr folder
+download main.py, searched_small_edsr folder
 ```bash
 FDSR-test
 |-- main.py
-|-- edsr.py
 `-- searched_small_edsr_x4
     |-- model_best.pt
     |-- ..
