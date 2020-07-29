@@ -19,3 +19,4 @@ you may delete testx4.png and place your own images
 ```bash
 python main.py
 ```
+and then the output SR image will appear in the folder
