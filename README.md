@@ -1,6 +1,6 @@
 # FDSR-test
 test version for FDSR
-for searched small edsr in x4
+for searched small edsr in x4 and x2
 
 ## Dependencies
 * Python 3.6
@@ -18,12 +18,16 @@ FDSR-test
 `-- searched_small_edsr_x4
     |-- model_best.pt
     |-- ..
-```
+`-- searched_small_edsr_x2
+    |-- model_best.pt
+    |-- ..
+
 ## 2. Place test image [.png]
 you may delete testx4.png and place your own images
 
 ## 3. Execute
 ```bash
-python main.py
+python main.py --scale 4 # for x4
+python main.py --scale 2 # for x2
 ```
 and then the output SR image will appear in the folder
