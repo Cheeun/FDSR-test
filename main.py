@@ -15,15 +15,17 @@ import glob
 
 parser = argparse.ArgumentParser(description='FDSR')
 parser.add_argument('--scale', type=int, default='4',help='super resolution scale')
-parser.add_argument('--pre_train', type=str, default='searched_small_edsr_x4/model_best.pt', help='pre-trained model directory')
+# parser.add_argument('--pre_train', type=str, default='searched_small_edsr_x4/model_best.pt', help='pre-trained model directory')
 parser.add_argument('--n_resblocks', type=int, default=16, help='number of residual blocks')
 parser.add_argument('--n_feats', type=int, default=64, help='number of feature maps')
 parser.add_argument('--res_scale', type=float, default=1, help='residual scaling')
-parser.add_argument('--import_dir', type=str, default='searched_small_edsr_x4', help='file dir to import from')
+# parser.add_argument('--import_dir', type=str, default='searched_small_edsr_x4', help='file dir to import from')
 parser.add_argument('--n_colors', type=int, default=3, help='number of color channels to use')
 parser.add_argument('--rgb_range', type=int, default=255, help='maximum value of RGB')
 args = parser.parse_args()
 
+args.pre_train = 'searched_small_edsr_x'+str(args.scale)+'/model_best.pt'
+args.import_dir = 'searched_small_edsr_x'+str(args.scale)
 ##################### Exported Architecture ##########################
 args.op1 = torch.load(args.import_dir+'/NoAct1.pt') 
 args.op2 = torch.load(args.import_dir+'/NoAct2.pt')
@@ -326,6 +328,7 @@ def main():
     device=torch.device("cuda")
     model = EDSR(args)
     kwargs = {}
+    print('Scale'+str(args.scale))
     print('Load the model from {}'.format(args.pre_train))
     load_from = torch.load(args.pre_train, **kwargs)
     if load_from:
