@@ -21,7 +21,7 @@ FDSR-test
 `-- searched_small_edsr_x2
     |-- model_best.pt
     |-- ..
-
+```
 ## 2. Place test image [.png]
 you may delete testx4.png and place your own images
 
